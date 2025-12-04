@@ -1,6 +1,7 @@
 ﻿using ExpenseTracker.API.Helpers;
 using ExpenseTracker.API.Models.Auth;
 using ExpenseTracker.API.Models.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -24,6 +25,7 @@ namespace ExpenseTracker.API.Controllers
             _config = config;
         }
 
+        [AllowAnonymous]
         [HttpPost("register")]
         public async Task<ActionResult<RegisterResponse>> Register(RegisterRequest request)
         {
@@ -56,6 +58,7 @@ namespace ExpenseTracker.API.Controllers
             return Ok(response);
         }
 
+        [AllowAnonymous]
         [HttpPost("login")]
         public async Task<ActionResult<AuthResponse>> Login(LoginRequest request)
         {
