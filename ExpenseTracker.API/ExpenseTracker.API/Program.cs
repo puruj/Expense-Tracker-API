@@ -94,3 +94,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+// Exposed for WebApplicationFactory<T> in tests
+public partial class Program { }
